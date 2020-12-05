@@ -1,0 +1,13 @@
+*.pyc
+__pycache__
+.idea
+*.png
+*.jpg
+*.gif
+*.avi
+*.mp4
+*.txt
+*.npy
+*.zip
+*.xml
+*.json
