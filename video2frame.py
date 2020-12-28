@@ -13,8 +13,8 @@ from tqdm import tqdm
 import cv2
 
 parser = argparse.ArgumentParser(description="Video2Frames converter")
-parser.add_argument('--input', default='./traj.mp4', help="Input video file")
-parser.add_argument('--output', default='./aptest_d', help="Output folder. If exists it will be removed")
+parser.add_argument('--input', default='/home/roit/bluep2/datasets/mcvideos/sildurs[rz2,x,y][0,45,0][-200,-200,150].mp4', help="Input video file")
+parser.add_argument('--output', default='/home/roit/bluep2/datasets/mc2/[rz2,x,y][0,45,0][-200,-200,150]/sildurs', help="Output folder. If exists it will be removed")
 parser.add_argument('--skip',default=1,help="minimum 1 is normal")
 parser.add_argument('--rotate', type=int, default=0, choices={0,90, 180, 270}, help="Rotate clock-wise output frames")
 parser.add_argument('--exifmodel', default=None, help="An example photo file to fill output meta-tags")
@@ -56,6 +56,7 @@ def main():
     if args.verbose:
         print(frameCount)
     skipDelta = args.skip
+
     #maxframes = args.maxframes
     #if args.maxframes and frameCount > maxframes:#跳帧决定
     #    skipDelta =int(frameCount / maxframes)#乡下取证
@@ -103,7 +104,7 @@ def main():
 
 
 
-        ofname = out_path/'{:05d}.jpg'.format(f_cnt)#补零操作
+        ofname = out_path/'{:05d}.jpg'.format(f_cnt-1)#补零操作
         ret = cv2.imwrite(ofname, frame)
         if not ret:
             print("Failed to write the frame {f}".format(f=frameId))

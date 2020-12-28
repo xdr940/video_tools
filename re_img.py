@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 #path = '/home/roit/datasets/Binjiang/00082'
 
 def rename():
-    path = '/home/roit/testouts/vsd/ours'
+    path = '/home/roit/datasets/scu/seq06'
     path = Path(path)
     files = path.files()
     files.sort()
@@ -46,5 +46,5 @@ def color2gray():
         cv2.imwrite(dump_dir/item.stem+".jpg", img)
 
 if __name__ == '__main__':
-    #rename()
-    color2gray()
+    rename()
+    #color2gray()
